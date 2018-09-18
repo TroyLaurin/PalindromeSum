@@ -1,21 +1,43 @@
 # PalindromeSum
 
-**TODO: Add description**
+Every positive integer is a sum of three palindromes.
+https://arxiv.org/pdf/1602.06208.pdf
 
-## Installation
+An implementation of the algorithm in Elixir
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `palindrome_sum` to your list of dependencies in `mix.exs`:
+## Usage
 
-```elixir
-def deps do
-  [
-    {:palindrome_sum, "~> 0.1.0"}
-  ]
-end
+```
+> iex -S mix
+Compiling 2 files (.ex)
+Interactive Elixir (1.6.6) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> import PalindromeSum
+PalindromeSum
+iex(2)> "1234" |> parse(10) |> solve |> dump |> verify
+1234
+----
+1001
+ 232
+   1
+----
+1234
+:ok
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/palindrome_sum](https://hexdocs.pm/palindrome_sum).
+The algorithm also works in bases other than 10!
+```
+> iex -S mix
+Interactive Elixir (1.6.6) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> import PalindromeSum
+PalindromeSum
+iex(2)> "CAFE" |> parse(16) |> solve |> dump |> verify
+CAFE
+----
+C00C
+ AEA
+   8
+----
+CAFE
+:ok
+```
 
